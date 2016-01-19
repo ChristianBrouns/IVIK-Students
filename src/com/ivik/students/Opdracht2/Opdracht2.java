@@ -13,13 +13,13 @@ public class Opdracht2 {
 
         int i = 0;
         for (int temp : numbers) {
-            System.out.println("number " + ++i + " = " + temp);
+            System.out.println("number " + i++ + " = " + temp);
         }
         System.out.println();
 
         int j = 2;
         for (int temp : Arrays.copyOfRange(numbers, 2, 8)) {
-            System.out.println("number " + ++j + " = " + temp);
+            System.out.println("number " + j++ + " = " + temp);
         }
     }
 }

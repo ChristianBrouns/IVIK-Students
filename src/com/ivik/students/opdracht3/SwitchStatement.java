@@ -6,7 +6,7 @@ package com.ivik.students.opdracht3;
 public class SwitchStatement {
     public static String convertMonth (int month) {
 
-        String monthname = null;
+        String monthname;
 
         switch (month) {
             case 1:
@@ -57,7 +57,7 @@ public class SwitchStatement {
     }
 
     public static void main(String[] args) {
-        System.out.println("the name of the month = " + SwitchStatement.convertMonth(15));
+        System.out.println("the name of the month = " + SwitchStatement.convertMonth(10));
     }
 }
 
