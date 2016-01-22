@@ -17,18 +17,9 @@ public class Square extends Rectangle {
             return this.area;
         }
 
-        public void setArea (double area) {
-            this.area = area;
-
-        }
-
-        public double getPerimeter (){
+       public double getPerimeter (){
             perimeter = 4 * width;
 
             return this.perimeter;
     }
-        public void setPerimeter (double perimeter) {
-            this.perimeter = perimeter;
-        }
-
 }

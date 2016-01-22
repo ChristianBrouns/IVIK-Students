@@ -5,17 +5,19 @@ package com.ivik.students.inheritance;
  */
 public class ShapeDetail {
 
-    public static double shapeArea(Shape shape) {
 
+    public static double shapeArea(Shape shape) {
         shape.getArea();
 
         return shape.area;
     }
 
-    public static double shapePerimeter(Shape shape ){
+
+    public static double shapePerimeter(Shape shape) {
 
         shape.getPerimeter();
 
         return shape.perimeter;
     }
 }
+

@@ -5,30 +5,23 @@ package com.ivik.students.inheritance;
  */
 public class Circle extends Shape {
 
-   double radius;
+    double radius;
 
-    public Circle (double radius) {
+
+    public Circle (double radius){
         this.radius = radius;
-
-    }
-            public double getArea () {
-                area = this.radius * this.radius * Math.PI;
-
-            return this.area;
-            }
-
-             public void setArea (double area) {
-                this.area = area;
     }
 
-            public double getPerimeter () {
-                perimeter =  2 * this.radius * Math.PI;
+     public double getArea() {
+        area = radius * radius * Math.PI;
 
-                return this.perimeter;
-            }
+        return this.area;
+    }
 
-            public void setPerimeter (double perimeter) {
-                this.perimeter = perimeter;
-            }
+    public double getPerimeter() {
+        perimeter = 2 * radius * Math.PI;
+
+        return this.perimeter;
+    }
 
 }

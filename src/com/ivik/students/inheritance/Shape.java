@@ -6,13 +6,14 @@ package com.ivik.students.inheritance;
 public class Shape {
 
     static double area;
-    double perimeter;
+    static double perimeter;
 
 
     public double getArea() {
         return area;
-            }
+    }
     public double getPerimeter() {
         return perimeter;
     }
+
 }
