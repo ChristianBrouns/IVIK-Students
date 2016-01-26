@@ -7,7 +7,8 @@ import com.ivik.students.StudentExam.util.model.Student;
 
 //Bubble sort method for ascending order
 
-public abstract class SortUtils implements StudentComparable {
+public class SortUtils implements StudentComparable {
+
     public static void sortStudent(Student[] students, StudentComparable compare) {
 
         boolean sorted = false;
@@ -33,8 +34,15 @@ public abstract class SortUtils implements StudentComparable {
         }
     }
 
-
+    @Override
+    public int compareTo(Student student1, Student student2) {
+        return 0;
+    }
 }
+
+
+
+
 
                     /* // old code//
 
