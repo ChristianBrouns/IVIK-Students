@@ -1,40 +1,79 @@
 /**
  * Created by Christian on 25-1-2016.
- */
+
 public class TestExceptions {
 
-    private static double averageScore(double totalScore, String noStudentsAsString)
-            throws ArithmeticException{
-        double noStudents = Integer.parseInt(noStudentsAsString);
-        double averageScore = totalScore / noStudents;
-        if (noStudents <= 0) throw new ArithmeticException("Average score of (900, '0') resulted in a Arithmetic Exception");
+   private double averageScore (double totalScore, String noStudentsAsString) {
+       int noStudents = Integer.parseInt(noStudentsAsString);
+       double result = totalScore/noStudents;
+       return result;
+    }
 
-            try {noStudents = Integer.valueOf(noStudentsAsString);
+    public void testAverages(){
+
+    }
+
+    public static void main(String[] args) {
+        // testAverages test1 = new testAverages(900, "10");
+       // System.out.println("Average score of " + () + "is " + (AverageScore(900, 10)));
+    }
+
+}
+
+/*
+    void totalScore(double score) throws ArithmeticException {
+        System.out.println("Average score of " + (AverageScore(900, 10)) + "is " + (AverageScore(900,10)));
+        if (score <= 0) throw new ArithmeticException();
+    }
+
+    void noStudentsAsString (String number) throws NumberFormatException {
+        System.out.println("Average score of " + (AverageScore(900, 10)) + "is " + (AverageScore(900, 10)));
+
+        if (noStudents != Integer.valueOf(number)) throw new NumberFormatException();
+    }
+
+    public static void main(String[] args) {
+
+    try {   TestExceptions test1 = new TestExceptions (900, 10);
+
+
+            double result = totalScore/noStudents;
+            return result;
+            }
+
+        catch () {
+        }
+
+    }
+        if (noStudents <= 0) ;
+        System.out.println("Average score of " +
+
+    AverageScore(totalScore, noStudentsAsString) {
+        AverageScore = totalScore/noStudents;
+    }
+
+    + " resulted in a Arithmetic Exception");
+
+        try {noStudents = Integer.valueOf(noStudentsAsString);
+                System.out.println("Average score of " + AverageScore(totalScore, noStudentsAsString) + "resulted in NumberFormatException");
              }
                 catch (NumberFormatException nfe)
                 {
-            System.out.println("Average score of " + noStudentsAsString + "resulted in NumberFormatException");
+
         }
-        return averageScore;
+
+
     }
-     public double testAverages () {
-
-         averageScore (900, "10");
-         averageScore(90, "oops");
-         averageScore(90, "0");
-
-         return testAverages();
-    }
-
 
     public static void main(String[] args) {
-       System.out.println("Average score of " + (averageScore(900, "10")) + " is " + averageScore(900, "10"));
-       System.out.println("Average score of (900, 'oops')" + "is " + averageScore(900, "oops"));
-       System.out.println("Average score of (900, '0')" + "is " + averageScore(900, "0"));
+
+       System.out.println("Average score of " + (AverageScore(900, "10")) + " is " + (AverageScore(900, "10")));
+       System.out.println("Average score of " + (AverageScore(900, "oops")) + "is " + (AverageScore(900, "oops")));
+
     }
 }
 
-
+*/
 /*
 
 Stap 3
@@ -59,4 +98,79 @@ Change the class and method/s in stap1 en of stap 2 so that you can achieve the 
         at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
         at java.lang.reflect.Method.invoke(Method.java:606)
         at com.intellij.rt.execution.application.AppMain.main(AppMain.java:144)
+
 */
+
+
+class Parms {
+
+    private double total;
+    private String noStudentsAsString;
+
+    double getTotal() {
+        return total;
+    }
+    void setTotal(double total) {
+        this.total = total;
+    }
+
+    String getNoStudentsAsString() {
+        return noStudentsAsString;
+    }
+    void setNoStudentsAsString(String noStudentsAsString) {
+        this.noStudentsAsString = noStudentsAsString;
+    }
+
+    Parms(double total, String noStudentsAsString) {
+        this.total = total;
+        this.noStudentsAsString = noStudentsAsString;
+    }
+}
+
+public class TestExceptions {
+
+    private static final String CORRECT_RESULT = "Average score of (%5.2f,%s) is %5.2f\n";
+    private static final String INVALID_RESULT = "Average score of (%5.2f,%s) resulted in a  %s\n";
+
+    private double calcAverage(double total, String noStudentsAsStr) {
+
+        // note better to use pattern matching first
+        int noStudents = Integer.parseInt(noStudentsAsStr);
+
+        // result of double / int is a double and it wont abend
+        // therfore I have to do a trick first
+
+        int check = 1 / noStudents;
+        return total / noStudents;
+
+    }
+
+
+    private void testAverages() {
+
+        Parms[] parms =
+                new Parms[]{new Parms(900, "10"),
+                new Parms(900, "0"),
+                new Parms(900, "oops"),
+                new Parms(900, "57")
+        };
+
+        for (Parms parm : parms) {
+
+            try {
+
+                double result = calcAverage(parm.getTotal(), parm.getNoStudentsAsString());
+                System.out.format(CORRECT_RESULT, parm.getTotal(), parm.getNoStudentsAsString(), result);
+            } catch (RuntimeException e) {
+                System.out.printf(INVALID_RESULT, parm.getTotal(), parm.getNoStudentsAsString(), e.getClass().getSimpleName());
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+        new TestExceptions().testAverages();
+
+    }
+
+}
